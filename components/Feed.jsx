@@ -34,6 +34,12 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
+  const handleSearchChange = (e) => {
+  };
+
+  const handleTagClick = (tagName) => {
+  };
+
   return (
     <section className='feed'>
       <form className='relative w-full flex-center'>
@@ -41,7 +47,7 @@ const Feed = () => {
           type='text'
           placeholder='Search for a tag or a username'
           value={searchText}
-          onChange={() => {}}
+          onChange={handleSearchChange}
           required
           className='search_input peer'
         />
@@ -49,11 +55,11 @@ const Feed = () => {
       {/* All Prompts */}
       {searchText ? (
         <PromptCardList
-          data={allPosts}
-          handleTagClick={() => {}}
+          data={searchedResults}
+          handleTagClick={handleTagClick}
         />
       ) : (
-        <PromptCardList data={allPosts} handleTagClick={() => {}} />
+        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
       )}
     </section>
   );
